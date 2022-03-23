@@ -5,5 +5,9 @@ return [
         'list' => 'ひとこと',
     ],
     'links' => [],
-    'btn' => [],
+    'btn' => [
+    ],
+    'list' => [
+        'user_name' => 'ユーザー名：'
+    ],
 ];
