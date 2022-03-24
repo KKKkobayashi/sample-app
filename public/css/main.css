@@ -6,12 +6,19 @@ textarea {
     height: 55px;
 }
 
-.chat-create-link {
-    height: 55px;
-    line-height: 55px;
-}
-
 .error-msg {
     font-size: 0.75rem;
     color: red;
+}
+
+.create-form {
+    height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition-duration: 0.7s;
+}
+
+.create-form.is-open {
+    height: auto;
+    opacity: 1;
 }

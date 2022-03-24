@@ -32,7 +32,7 @@ class ChatService extends CommonService
         $formInput = [
             'user_id' => Auth::id(),
             'content' => $formInput['content'],
-            'public' => 1,
+            'public' => $formInput['public'],
         ];
         $this->model->create($formInput);
     }

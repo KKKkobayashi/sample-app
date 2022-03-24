@@ -20,10 +20,12 @@ class ChatController extends Controller
      */
     public function getList()
     {
+        // セッション取得
         // データ取得
         $result = $this->service->getList();
         $viewAssign = [
             'result' => $result,
+            'scrollTop' => 2000,
         ];
         return view('chat.list', $viewAssign);
     }
@@ -31,8 +33,10 @@ class ChatController extends Controller
     /**
      * 更新
      */
-    public function getReload()
+    public function postReload()
     {
+        // セッション格納
+        // リダイレクト
         return redirect('chat');
     }
 

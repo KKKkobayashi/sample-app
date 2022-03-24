@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- ファビコン -->
-        <link rel="icon" href="{{ asset('img/icon.png') }}">
+        {{-- <link rel="icon" href="{{ asset('img/icon.png') }}"> --}}
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">

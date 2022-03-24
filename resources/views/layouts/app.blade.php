@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- ファビコン -->
-        <link rel="icon" href="{{ asset('img/icon.png') }}">
+        {{-- <link rel="icon" href="{{ asset('img/icon.png') }}"> --}}
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -20,6 +20,7 @@
         @livewireStyles
 
         <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="https://kit.fontawesome.com/34306164c5.js" crossorigin="anonymous"></script>
     </head>

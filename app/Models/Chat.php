@@ -37,6 +37,6 @@ class Chat extends Model
                     ->orWhere('chats.public', config('const.MODEL.CHAT.PUBLIC.PUBLIC'));
             })
             ->orderby('chats.created_at', 'desc')
-            ->get();
+            ->paginate(10);
     }
 }
