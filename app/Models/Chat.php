@@ -23,8 +23,10 @@ class Chat extends Model
 
     /**
      * 一覧データ取得
+     *
+     * @param int $showNum
      */
-    public function getList()
+    public function getList(int $showNum)
     {
         return $this
             ->select(
@@ -37,6 +39,6 @@ class Chat extends Model
                     ->orWhere('chats.public', config('const.MODEL.CHAT.PUBLIC.PUBLIC'));
             })
             ->orderby('chats.created_at', 'desc')
-            ->paginate(10);
+            ->paginate($showNum);
     }
 }

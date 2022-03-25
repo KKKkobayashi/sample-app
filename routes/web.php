@@ -29,9 +29,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::group(['middleware' => ['auth:web']], function () {
-    Route::group(['prefix' => 'chat', 'as' => 'chat.'], function () {
+    Route::group(['prefix' => 'chat', 'as' => 'chat.', 'middleware' => ['sessionGuard:chat']], function () {
         Route::get('', [ChatController::class, 'getList'])->name('list');
-        Route::post('reload', [ChatController::class, 'postReload'])->name('reload');
+        Route::get('reload', [ChatController::class, 'getReload'])->name('getReload');
+        Route::post('reload', [ChatController::class, 'postReload'])->name('postReload');
         Route::post('create', [ChatController::class, 'postCreate'])->name('create');
     });
 });

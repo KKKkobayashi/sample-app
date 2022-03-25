@@ -17,11 +17,13 @@ class ChatService extends CommonService
 
     /**
      * 一覧データ取得
+     *
+     * @param int $showNum
      */
-    public function getList()
+    public function getList(int $showNum)
     {
         // データ取得
-        return $this->model->getList();
+        return $this->model->getList($showNum);
     }
 
     /**

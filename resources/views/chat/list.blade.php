@@ -28,7 +28,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-2">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-11">
                 <div class="text-left mb-5">
-                    <a href="{{ route('chat.list') }}" class="ml-5">
+                    <a href="{{ route('chat.getReload') }}" class="ml-5">
                         <i class="fa-solid fa-rotate text-2xl"></i>
                     </a>
                 </div>
@@ -45,9 +45,10 @@
                     </div>
                 @endforeach
                 @if ($result->hasMorePages())
-                    <form action="{{ route('chat.reload') }}" method="POST" class="reload-form">
-                        <input type="hidden" name="scrol_top" value="" id="scrol-top">
-                        <input type="submit" value="もっと見る">
+                    <form action="{{ route('chat.postReload') }}" method="POST" class="reload-form">
+                        @csrf
+                        <input type="hidden" name="scrol_top" value="" id="scroll-top">
+                        <input type="submit" value="もっと見る" class="border rounded mt-2 w-full bg-gray-500 py-1 text-white font-bold">
                     </form>
                 @endif
             </div>
@@ -55,8 +56,17 @@
     </div>
 </x-app-layout>
 <script>
-    document.querySelector('.chat-create-link').onclick = function () {
-        document.querySelector('.create-form').classList.toggle('is-open');
+    $(function () {
+        $('.chat-create-link').click(function () {
+            $('.create-form').toggleClass('is-open');
+        })
+    })
+    $('.reload-form').submit(function () {
+        let top = $(window).scrollTop();
+        $('#scroll-top').val(top);
+    })
+    window.onload = function () {
+        console.log(@json($scrollTop));
+        $(window).scrollTop(@json($scrollTop));
     }
-    
 </script>
